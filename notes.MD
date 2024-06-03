@@ -29,6 +29,8 @@ Setting up the project and repo
 $> mkdir webpack-5-full-project-setup
 $> cd webpack-5-full-project-setup
 $> git init
+$> git remote add origin https://github.com/sbehnfeldt/webpack-5-full-project-setup.git 
+$> git push --set-upstream origin master 
 $> npm init
 $> npm i -D webpack webpack-cli webpack-dev-server
 ```
@@ -46,4 +48,17 @@ Add scripts to the NPM dependencies file:
 Bundle the assets
 ```shell
 $> npm run build
+```
+
+
+Since this video was made, the default behavior of Webpack's dev server was changed to serve files from a directory called "public".
+To serve them from "dist" required creating the webpack config file (_webpack.config.js_) ahead of schedule and adding the following:
+```js
+const path = require( 'path' );
+
+module.exports = {
+    devServer: {
+        static: './dist'
+    },
+}
 ```
