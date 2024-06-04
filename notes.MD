@@ -50,6 +50,11 @@ Bundle the assets
 $> npm run build
 ```
 
+## Dev Server
+Webpack offers a development web server.  It does not process PHP.  
+It provides hot-module replacement _without_ re-bundling assets, 
+but rather by injecting HMR functionality into the bundle
+and providing updates therefrom.
 
 Since this video was made, the default behavior of Webpack's dev server was changed to serve files from a directory called "public".
 To serve them from "dist" required creating the webpack config file (_webpack.config.js_) ahead of schedule and adding the following:
