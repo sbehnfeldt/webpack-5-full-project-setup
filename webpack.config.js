@@ -1,8 +1,12 @@
 const path = require('path');
+let mode   = "development";
+if ("production" === process.env.NODE_ENV) {
+    mode = "production";
+}
 
 module.exports = {
-    mode: "development",
-    devtool: false,
+    mode: mode,
+    devtool: "source-map",
     devServer: {
         static: './dist'
     },

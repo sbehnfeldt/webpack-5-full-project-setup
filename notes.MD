@@ -91,3 +91,29 @@ module.exports = {
     presets: ["@babel/preset-env"]
 }
 ```
+
+## Source Maps
+In webpack config file, set "devtool" to "source-map". This will provide source JS, rather than the bundled and transpiled JS,
+in the browser's dev tools.
+
+Update the "build" script in package.json to build production version.
+Provide a second script to build dev version.
+```json
+{
+    "build": "NODE_ENV=production webpack",
+    "build-dev": "webpack"
+}
+```
+
+Then update the "mode" value in webpack config:
+```js
+let mode   = "development";
+if ("production" === process.env.NODE_ENV) {
+    mode = "production";
+}
+
+module.exports = {
+    mode: mode,
+    ...
+}
+```
