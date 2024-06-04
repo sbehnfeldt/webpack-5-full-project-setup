@@ -67,3 +67,27 @@ module.exports = {
     },
 }
 ```
+
+## Babel
+Transpile source JS into JS compatible with older versions for older browsers.
+```shell
+$> npm i -D babel-loader @babel/core @babel/preset-env
+```
+Update webpack config:
+```js
+    module: {
+        rules: [{
+            test: /\.js$/,
+            exclude: /node_modules/,
+            use: {
+                loader: "babel-loader"
+            }
+        }]
+    }
+```
+Babel looks for a Babel config file, either .babelrc, or babel.config.js. We will use the latter:
+```js
+module.exports = {
+    presets: ["@babel/preset-env"]
+}
+```
