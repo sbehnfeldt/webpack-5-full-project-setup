@@ -117,3 +117,50 @@ module.exports = {
     ...
 }
 ```
+## CSS
+  
+
+Webpack natively understands JS files only. To import CSS requires a CSS loader.
+```shell
+$> npm i -D css-loader mini-css-extract-plugin 
+$> npm i -D sass sass-loader
+$> npm i -D postcss postcss-preset-env postcss-loader
+```
+
+_webpack.config.js_:
+```js
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin');
+
+module.exports = {
+    rules: [{
+        test: /\.css$/i, 
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"]
+    }],
+    plugins: [
+        new MiniCssExtractPlugin()
+    ]
+}
+```
+
+
+```js
+import './styles/index.css'
+```
+
+### Post-CSS
+_postcss.config.js_
+
+```js
+module.exports = {
+    plugins: ['postcss-preset-env']
+}
+```
+### Hot-Module Replacement
+_webpack.config.js_
+```js
+module.exports = {
+    devServer: {
+        hot: true
+    }
+}
+```
