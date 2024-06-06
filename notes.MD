@@ -148,6 +148,12 @@ import './styles/index.css'
 ```
 
 ### Post-CSS
+- Auto-prefixing CSS rules
+- CSS minification
+- CSS linting
+- allowing variable, mixins and other CSS-preprocessor-like features from within CSS proper
+- transpiling modern CSS features into more widely-supportd forms
+
 _postcss.config.js_
 
 ```js
@@ -164,3 +170,15 @@ module.exports = {
     }
 }
 ```
+
+## Browserslist
+Specifies browsers babel and post-css should support.
+Includes both explicitly-named browsers and browsers meeting specified criteria.
+ref: https://caniuse.com
+_.browserslistrc_
+```
+last 2 versions
+> 0.5%
+IE 10
+```
+
